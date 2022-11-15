@@ -9,13 +9,9 @@ on:
       - main
 
 jobs:
-  Install-server-dependancies:
+  install-server-dependancies:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - run : npm ci
-  Update design tokens:
-    runs-on: ubuntu-latest
-    steps:
-        - uses: actions/checkout@v2
-        - run : npm run token
+      - name: Install server dependencies
+        uses: actions/checkout@v2
+        run : npm ci
