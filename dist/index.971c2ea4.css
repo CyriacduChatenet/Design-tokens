@@ -15,7 +15,6 @@ body {
 }
 
 nav {
-  background-color: #89b5f6;
   grid-area: nav;
   justify-content: space-between;
   align-items: center;
@@ -31,16 +30,7 @@ nav > ul {
   display: flex;
 }
 
-nav > .logo {
-  color: #000;
-  font-size: 20px;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-nav > ul > li > a {
-  color: #000;
-  font-weight: 500;
+nav > .logo, nav > ul > li > a {
   text-decoration: none;
 }
 
@@ -54,20 +44,13 @@ main {
 }
 
 .title {
-  color: #000;
   padding: 2rem 0;
-  font-family: Roboto Slab;
-  font-size: 56px;
-  font-weight: 400;
 }
 
 button {
-  color: #fff;
   background-color: #1060d5;
-  border: 2px solid #fff;
   border-radius: 10px;
   padding: .75rem 2rem;
-  font-weight: 800;
 }
 
 /*# sourceMappingURL=index.971c2ea4.css.map */

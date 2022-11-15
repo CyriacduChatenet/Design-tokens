@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: $text_fontFamily_primary;
+  font-family: $tokens-text_fontFamily_primary-value;
 }
 
 body {
@@ -24,8 +24,6 @@ nav {
   grid-area: nav;
 
   padding: 2rem 6rem;
-
-  background-color: $color_bg_text_secondary;
 }
 
 nav > ul {
@@ -39,16 +37,11 @@ nav > ul {
 }
 
 nav > .logo {
-  color: $color_text_primary;
   text-decoration: none;
-  font-weight: $text_fontWeight_extraBold;
-  font-size: $text_fontSize_lg;
 }
 
 nav > ul > li > a {
-  color: $color_text_primary;
   text-decoration: none;
-  font-weight: $text_fontWeight_medium;
 }
 
 main {
@@ -63,20 +56,10 @@ main {
 
 .title {
   padding: 2rem 0;
-
-  color: $color-text-primary;
-  font-size: $text_fontSize_xl;
-  font-family: $text_fontFamily_secondary;
-  font-weight: $text_fontWeight_regular;
 }
 
 button {
   padding: 0.75rem 2rem;
-
-  background-color: $color_bg_text_primary;
-
-  color: $color-text_secondary;
-  font-weight: $text_fontWeight_extraBold;
-  border: 2px solid $color-text_secondary;
   border-radius: 10px;
+  background-color: $tokens-color_bg_thirdary-value;
 }
