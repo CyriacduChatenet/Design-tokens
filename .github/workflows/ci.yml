@@ -9,8 +9,11 @@ on:
       - main
 
 jobs:
-  install-server-dependancies:
+build:
     runs-on: ubuntu-latest
     steps:
-      - name: Install server dependencies
-      - run : npm ci
+      - uses: actions/checkout@v2
+        with:
+          node-version: "16"
+          check-latest: true
+      - run: npm run ci
