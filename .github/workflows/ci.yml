@@ -17,6 +17,7 @@ jobs:
           node-version: "16"
           check-latest: true
       - run: npm ci
+      
   update-design-tokens:
     runs-on: ubuntu-latest
     steps:
