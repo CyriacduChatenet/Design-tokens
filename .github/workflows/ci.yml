@@ -11,11 +11,11 @@ on:
 jobs:
   Install-server-dependancies:
     runs-on: ubuntu-latest
-      steps:
+    steps:
         - uses: actions/checkout@v2
         - run : npm ci
   Update design tokens:
     runs-on: ubuntu-latest
-      steps:
+    steps:
         - uses: actions/checkout@v2
         - run : npm run token
