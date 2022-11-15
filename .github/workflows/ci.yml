@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  install-dependancies:
+  build:
     runs-on: ubuntu-latest
 
     name: "Install dependencies"
@@ -17,14 +17,56 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install dependencies
+      - name: Install de
         run: npm ci
 
-  update-tokens:
-    name: "Update design tokens"
+  lint:
+    if: github.repository == 'vitejs/vite'
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    name: "Lint: node-16, ubuntu-latest"
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      - name: Update design tokens
-        run: npm run token
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.4
+
+      - name: Set node version to 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Check formatting
+        run: pnpm prettier --check .
+
+      - name: Typecheck
+        run: pnpm run typecheck
+  # - name: install-dependencies:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         node-version: "16"
+  #         check-latest: true
+  #     - run: npm ci
+
+  # - name: update-design-tokens:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         node-version: "16"
+  #         check-latest: true
+  #     - run: npm run token
