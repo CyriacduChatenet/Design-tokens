@@ -9,20 +9,22 @@ on:
       - main
 
 jobs:
-  - name: install-dependencies:
+  install-dependancies:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          node-version: "16"
-          check-latest: true
-      - run: npm ci
 
-  - name: update-design-tokens:
-    runs-on: ubuntu-latest
+    name: "Install dependencies"
     steps:
-      - uses: actions/checkout@v2
-        with:
-          node-version: "16"
-          check-latest: true
-      - run: npm run token
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+  update-tokens:
+    name: "Update design tokens"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Update design tokens
+        run: npm run token
