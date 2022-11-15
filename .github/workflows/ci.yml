@@ -13,5 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install server dependencies
-        uses: actions/checkout@v2
-        run : npm ci
+      - uses: actions/checkout@v2
+      - run : npm ci
