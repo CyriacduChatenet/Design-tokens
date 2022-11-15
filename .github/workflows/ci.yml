@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  install-dependencies:
+  - name: install-dependencies:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,8 +17,8 @@ jobs:
           node-version: "16"
           check-latest: true
       - run: npm ci
-      
-  update-design-tokens:
+
+  - name: update-design-tokens:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
